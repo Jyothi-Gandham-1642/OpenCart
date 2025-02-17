@@ -1,0 +1,2 @@
+cd COpenCart
+mvn test
