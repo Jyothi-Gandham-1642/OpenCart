@@ -4,17 +4,10 @@
   <listeners>
     <listener class-name="utilities.ExtentReportManager"/>
   </listeners>
-  <test thread-count="5" name="Linux-Firefox(failed)">
-    <parameter name="os" value="Linux"/>
-    <parameter name="browser" value="firefox"/>
+  <test thread-count="5" name="C:/OpenCart/src/test/java/testCases(failed)">
+    <parameter name="os" value="Windows"/>
+    <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="testCases.TC001_AccountRegistrationTests">
-        <methods>
-          <include name="verify_account_registration"/>
-          <include name="tearDown"/>
-          <include name="setup"/>
-        </methods>
-      </class> <!-- testCases.TC001_AccountRegistrationTests -->
       <class name="testCases.TC002_LoginTests">
         <methods>
           <include name="tearDown"/>
@@ -22,6 +15,13 @@
           <include name="setup"/>
         </methods>
       </class> <!-- testCases.TC002_LoginTests -->
+      <class name="testCases.TC001_AccountRegistrationTests">
+        <methods>
+          <include name="verify_account_registration"/>
+          <include name="tearDown"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- testCases.TC001_AccountRegistrationTests -->
     </classes>
-  </test> <!-- Linux-Firefox(failed) -->
+  </test> <!-- C:/OpenCart/src/test/java/testCases(failed) -->
 </suite> <!-- Failed suite [All Test Suite] -->

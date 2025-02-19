@@ -1,5 +1,6 @@
 package testBase;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -41,9 +42,9 @@ public class BaseClass {
         p.load(file);
 
         logger = LogManager.getLogger(this.getClass());
+        WebDriverManager.chromedriver().setup();
+        WebDriverManager.edgedriver().setup();
 
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\BetterAnalytics\\Downloads\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
-        System.setProperty("webdriver.edge.driver", "C:\\Users\\BetterAnalytics\\Downloads\\edgedriver_win64\\msedgedriver.exe");
 
         ChromeOptions chromeOptions = new ChromeOptions();
         EdgeOptions edgeOptions = new EdgeOptions();
@@ -93,13 +94,16 @@ public class BaseClass {
 
         } else {
             if (br.equalsIgnoreCase("chrome")) {
+                WebDriverManager.chromedriver().setup();
                 driver = new ChromeDriver(chromeOptions);
             } else if (br.equalsIgnoreCase("edge")) {
+                WebDriverManager.edgedriver().setup();
                 driver = new EdgeDriver(edgeOptions);
             } else {
                 logger.error("Invalid Browser name");
                 return;
             }
+
         }
 
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
